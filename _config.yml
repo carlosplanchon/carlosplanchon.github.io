@@ -1,7 +1,7 @@
 # Site
 title:              Moon
-bio:                'Minimal, one column jekyll theme.'
-description:        "Moon is a minimal, one column jekyll theme for your blog."
+bio:                'I.T enthusiast, programmer, blogger.'
+description:        "Any sufficiently advanced technology is indistinguishable from biology."
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/logo.png'
@@ -38,17 +38,17 @@ disqus_shortname:   taylantatli
   #ad-slot:
 #bing-verify:
 #email:
-twitter:            username
-facebook:           username
-github-url:         username
-#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-#linkedin:          username
+twitter:            carlosplanchon
+facebook:           carlosplanchon
+github-url:         https://github.com/carlosplanchon
+stackoverflow:      https://stackexchange.com/users/12144082/carlos-a-planch%c3%b3n
+linkedin:           carlosplanchon
 #xing:              username
-instagram:          username
+instagram:          carlos.planchon
 #lastfm:            username
 #tumblr:            username
-#medium:            '@username'
-#pinterest:         username
+medium:            '@carlosplanchon'
+pinterest:         carlos_planchon
 #foursquare:        username
 steam:              username
 #dribbble:          username
