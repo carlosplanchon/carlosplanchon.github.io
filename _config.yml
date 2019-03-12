@@ -4,8 +4,8 @@ bio:                'I.T enthusiast, programmer, blogger.'
 description:        "Any sufficiently advanced technology is indistinguishable from biology."
 reading_time:       true
 words_per_minute:   200
-logo:               'assets/img/logo.png'
-background:         'assets/img/placeholder-big.jpg'
+logo:               'assets/img/carlosplanchon_face.png'
+background:         'assets/img/montevideo_from_space_edited.png'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
 url:                https://taylantatli.github.io/Moon
