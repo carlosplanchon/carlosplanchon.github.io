@@ -5,7 +5,7 @@ description:        "Any sufficiently advanced technology is indistinguishable f
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/me_beach_2019.jpg'
-background:         'assets/img/montevideo_from_space_edited_3.jpg'
+background:         'assets/img/punta_gorda_background.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
 url:                https://carlosplanchon.github.io
