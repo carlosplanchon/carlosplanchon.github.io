@@ -15,8 +15,8 @@ Why?
 
 To publish content related to (mainly) python software, to receive critics about pieces of code and projects on which I want to focus, and essentially to have fun.
 
-I made this blog using HubPress, which is easy and fun to use.
-https://github.com/HubPress/hubpress.io#fork-the-repository
+I made this blog using Jekyll, which is easy and fun to use.
+https://jekyllrb.com/
 
 I have been tinkering with technology since I have memories and I started programming as a hobbie in 2012.
 
