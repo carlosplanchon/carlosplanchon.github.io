@@ -1,5 +1,5 @@
 # Site
-title:              "Carlos A. Planchon"
+title:              Carlos A. Planchon
 bio:                'I.T enthusiast, programmer, blogger.'
 description:        "Any sufficiently advanced technology is indistinguishable from biology."
 reading_time:       true
@@ -30,7 +30,7 @@ disqus_shortname:   carlosplanchon
 
 # Social
 # if you don't have any of social below, comment the line.
-#google:
+google:
   #plus:            #username
   analytics: UA-135543704-1
   #verify:
