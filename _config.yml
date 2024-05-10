@@ -3,7 +3,7 @@ author:
   name: carlosplanchon
   email: carlosandresplanchonprestes@gmail.com
 description: Any sufficiently advanced technology is indistinguishable from biology.
-theme: minima
+theme: Moonwalk
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
