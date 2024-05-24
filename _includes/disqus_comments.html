@@ -1,4 +1,7 @@
 {%- if page.comments != false -%}
+  <p>Disqus shortname: {{site.disqus.shortname}}</p>
+  <p>Disqus page URL: {{ page.url | absolute_url }}</p>
+
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
