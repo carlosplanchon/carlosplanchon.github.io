@@ -11,3 +11,5 @@ header_pages:
   - about.md
 minima:
   skin: classic
+disqus:
+  shortname: carlosplanchon-1
