@@ -13,3 +13,4 @@ minima:
   skin: classic
 disqus:
   shortname: carlosplanchon-1
+comments: true
