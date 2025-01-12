@@ -1,24 +1,28 @@
 ---
 layout: post
-cover: /media/zach-reiner-jekyll-island-1.jpg
-title: "Welcome to Jekyll"
+cover: /media/preflight_checklist_29_12_2024.jpeg
+title: Welcome to Jekyll
+categories: programming
+author:
+  - Carlos A. Planchón
+meta: "#introduction"
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+### Hello World!
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+My name is Carlos Planchón. I was born in 1997 in Dolores, a small town located in Uruguay. My journey into programming began when I was just 10 years old, driven by curiosity. What started as a playful exploration eventually became my vocation and profession.
 
-You can also include code snippets:
+Today, I lead the artificial intelligence and web scraping team at BuscoJobs, where I specialize in large-scale data extraction, automated classification, hybrid recommendation systems, and data analysis. My work revolves around transforming vast amounts of data into actionable insights.
 
-```
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-```
+Beyond my professional work, I've always been passionate about open-source software and contribute when possible. In the past, I've delved into fields like High-Frequency Trading (HFT), where I applied structured concurrency techniques in latency-critical environments.
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+Outside of the tech world, I have a love for canoeing and sport aviation, both activities that keep me grounded and inspired.Outside of the tech world, I have a love for canoeing and sport aviation, both activities that keep me grounded and inspired.
 
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+I decided to start this blog after realizing that many of my reflections and experiences could offer valuable insights to others. My goal is to share my perspective and work on these topics, hoping they spark ideas and conversations among readers.
+
+The blog will be written entirely in English, even though Spanish is my native language. I am also fluent in Portuguese and English, which has helped me connect with diverse communities.
+
+My guiding principle is captured in my personal motto: **"Any sufficiently advanced technology is indistinguishable from biology."** This reflects my belief in the eventual convergence of biological processes and technological advancements.
+
+**I welcome all feedback and collaboration.**
+
+**Welcome, and enjoy the journey!**
