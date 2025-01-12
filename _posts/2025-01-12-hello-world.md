@@ -7,6 +7,8 @@ author:
   - Carlos A. Planchón
 meta: "#introduction"
 ---
+![](/media/preflight_checklist_29_12_2024.jpeg)
+
 My name is Carlos Planchón. I was born in 1997 in Dolores, a small town located in Uruguay. My journey into programming began when I was just 10 years old, driven by curiosity. What started as a playful exploration eventually became my vocation and profession.
 
 Today, I lead the artificial intelligence and web scraping team at BuscoJobs, where I specialize in large-scale data extraction, automated classification, hybrid recommendation systems, and data analysis. My work revolves around transforming vast amounts of data into actionable insights.
@@ -14,6 +16,8 @@ Today, I lead the artificial intelligence and web scraping team at BuscoJobs, wh
 Beyond my professional work, I've always been passionate about open-source software and contribute when possible. In the past, I've delved into fields like High-Frequency Trading (HFT), where I applied structured concurrency techniques in latency-critical environments.
 
 Outside of the tech world, I have a love for canoeing and sport aviation, both activities that keep me grounded and inspired.Outside of the tech world, I have a love for canoeing and sport aviation, both activities that keep me grounded and inspired.
+
+![](/media/preflight_checklist_29_12_2024.jpeg)
 
 I decided to start this blog after realizing that many of my reflections and experiences could offer valuable insights to others. My goal is to share my perspective and work on these topics, hoping they spark ideas and conversations among readers.
 
