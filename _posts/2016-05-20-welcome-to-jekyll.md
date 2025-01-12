@@ -1,7 +1,7 @@
 ---
 layout: post
 cover: /media/preflight_checklist_29_12_2024.jpeg
-title: Welcome to Jekyll
+title: Hello World!
 categories: programming
 author:
   - Carlos A. Planchón
