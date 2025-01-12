@@ -7,8 +7,6 @@ author:
   - Carlos A. Planchón
 meta: "#introduction"
 ---
-![](/media/preflight_checklist_29_12_2024.jpeg)
-
 My name is Carlos Planchón. I was born in 1997 in Dolores, a small town located in Uruguay. My journey into programming began when I was just 10 years old, driven by curiosity. What started as a playful exploration eventually became my vocation and profession.
 
 Today, I lead the artificial intelligence and web scraping team at BuscoJobs, where I specialize in large-scale data extraction, automated classification, hybrid recommendation systems, and data analysis. My work revolves around transforming vast amounts of data into actionable insights.
@@ -28,5 +26,3 @@ My guiding principle is captured in my personal motto: **"Any sufficiently advan
 **I welcome all feedback and collaboration.**
 
 **Welcome, and enjoy the journey!**
-
-![](/media/preflight_checklist_29_12_2024.jpeg)
