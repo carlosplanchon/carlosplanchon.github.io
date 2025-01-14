@@ -85,6 +85,6 @@ It’s important to note that \`parsel\_text\` is slightly heavier and slower th
 
 \- \[Official Parsel Documentation\]([https://parsel.readthedocs.io](https://parsel.readthedocs.io))
 
-\- \[Check out the README on GitHub\]([https://github.com/carlosplanchon/parsel\\\_text](https://github.com/carlosplanchon/parsel%5C_text))
+\- \[Check out the README on GitHub\]([https://github.com/carlosplanchon/parsel\_text](https://github.com/carlosplanchon/parsel%5C_text))
 
 _Happy scraping!_
