@@ -60,7 +60,7 @@ Consider using `parsel_text` if:
 *   ✅ You prefer a single tool that simplifies text extraction.
     
 
-Remember that the standard `parsel` library remains an excellent choice on its own. `parsel_text` is designed for situations where additional text cleanup and HTML flexibility are required.
+The standard `parsel` library is an excellent choice on its own. `parsel_text` is designed for situations where additional text cleanup and HTML flexibility are required.
 
 * * *
 
