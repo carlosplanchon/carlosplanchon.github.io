@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Enhancing Clean Web Data Extraction with Python
+title: Enhancing Clean Text Extraction when Scraping with Python
 categories: programming
 author:
   - Carlos A. Planchón
@@ -15,10 +15,8 @@ To address these specific challenges, I developed `parsel_text`—a tool that bu
     
 *   **Whitespace Cleanup:** Automatic removal of redundant spaces and line breaks, reducing the need for manual `.strip()` or regex fixes.
     
-*   **Nested HTML Handling:** `BeautifulSoup` allows for more forgiving parsing of deeply nested or imperfect HTML structures.  
+*   **Nested HTML Handling:** `BeautifulSoup` allows for more forgiving parsing of deeply nested or imperfect HTML structures.
     
-
-As additional features, you can also
 
 * * *
 
@@ -85,8 +83,8 @@ It’s important to note that \`parsel\_text\` is slightly heavier and slower th
 
 **Explore More:**
 
-\- \[Official Parsel Documentation\](https://parsel.readthedocs.io)
+\- \[Official Parsel Documentation\]([https://parsel.readthedocs.io](https://parsel.readthedocs.io))
 
-\- \[Check out the README on GitHub\](https://github.com/carlosplanchon/parsel\_text)
+\- \[Check out the README on GitHub\]([https://github.com/carlosplanchon/parsel\\\_text](https://github.com/carlosplanchon/parsel%5C_text))
 
 _Happy scraping!_
