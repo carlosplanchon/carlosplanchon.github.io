@@ -19,7 +19,7 @@ Outside of the tech world, I have a love for canoeing and sport aviation, both a
 
 I decided to start this blog after realizing that many of my reflections and experiences could offer valuable insights to others. My goal is to share my perspective and work on these topics, hoping they spark ideas and conversations among readers.
 
-The blog will be written entirely in english, even though spanish is my native language. I am also fluent in portuguese and , which has helped me connect with diverse communities.
+The blog will be written entirely in english, even though spanish is my native language. I am also fluent in portuguese, which has helped me connect with diverse communities.
 
 My guiding principle is captured in my personal motto: **"Any sufficiently advanced technology is indistinguishable from biology."** This reflects my belief in the eventual convergence of biological processes and technological advancements.
 
