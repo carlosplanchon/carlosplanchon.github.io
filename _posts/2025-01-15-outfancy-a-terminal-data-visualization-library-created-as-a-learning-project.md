@@ -81,7 +81,7 @@ for i in range(10):
 
 ![](/media/outfancy_realtime_table.png)
 
-Outfancy also supports experimental line charts for visualizing numerical data in a terminal-friendly way. This feature allows the rendering of basic line plots using ASCII characters, enabling simple data analysis directly from the command line.
+Outfancy includes an experimental feature for creating line charts, enabling numerical data visualization in a terminal-friendly format. This functionality uses ASCII characters to render basic line plots, making it easy to perform simple data analysis directly from the command line.
 
 A better option for this today is: [https://github.com/tammoippen/plotille](https://github.com/tammoippen/plotille)
 
