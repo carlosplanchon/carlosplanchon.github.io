@@ -8,6 +8,6 @@ LinkedIn: [https://linkedin.com/in/carlosplanchon](https://linkedin.com/in/carlo
 
 GitHub: [https://github.com/carlosplanchon/](https://github.com/carlosplanchon/)
 
-X: [https://x.com/carlosplanchon](https://x.com/carlosplanchon)
+X: [https://x.com/carlosplanchon/](https://x.com/carlosplanchon/)
 
 [jekyll-organization]: https://github.com/jekyll
