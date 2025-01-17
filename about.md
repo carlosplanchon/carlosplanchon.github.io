@@ -5,7 +5,9 @@ permalink: /about/
 ---
 
 LinkedIn: https://linkedin.com/in/carlosplanchon
+
 GitHub: https://github.com/carlosplanchon/
+
 X: https://x.com/carlosplanchon
 
 [jekyll-organization]: https://github.com/jekyll
