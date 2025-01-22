@@ -28,7 +28,7 @@ meta: "#programming #weekend #projects"
 
 **Why it matters**: Perfect for small teams or solo developers who need to track jobs without overcomplicating things. No Kubernetes, no bloat—just tasks and quotas.
 
-→ \[[https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)\]([https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/))
+→ \[([https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)\]([https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/))
 
 * * *
 
@@ -46,7 +46,7 @@ meta: "#programming #weekend #projects"
 
 **Why it matters**: Need a no-fuss way to test OpenAI’s Assistants API? This is a template for adding conversational AI to apps without drowning in boilerplate.
 
-→ \[[https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)\]([https://github.com/carlosplanchon/fastapi\_ai\_assistant](https://github.com/carlosplanchon/fastapi_ai_assistant))
+→ \[([https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)\]([https://github.com/carlosplanchon/fastapi\_ai\_assistant](https://github.com/carlosplanchon/fastapi_ai_assistant))
 
 * * *
 
@@ -64,7 +64,7 @@ meta: "#programming #weekend #projects"
 
 **Why it matters**: For traders or researchers, this offers a lightweight way to study market dynamics without proprietary tools.
 
-→ \[[https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)\]([https://github.com/carlosplanchon/measurevolume](https://github.com/carlosplanchon/measurevolume))
+→ \[([https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)\]([https://github.com/carlosplanchon/measurevolume](https://github.com/carlosplanchon/measurevolume))
 
 * * *
 
