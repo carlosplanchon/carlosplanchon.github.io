@@ -16,7 +16,7 @@ meta: "#programming #weekend #projects"
 
 **Key features**:
 
-\- **Credits system**: Users get a monthly budget to run tasks, preventing resource abuse.
+\- **Credits system**: Users get a number of credits to run tasks, preventing resource abuse, and allowing you to sell your software as a service.
 
 \- **Real-time monitoring**: Track task progress live without refreshing the page.
 
