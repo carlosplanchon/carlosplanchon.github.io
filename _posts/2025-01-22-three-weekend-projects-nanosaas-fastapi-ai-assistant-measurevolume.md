@@ -10,7 +10,7 @@ meta: "#programming #weekend #projects"
 
 **This post highlights three weekend projects—small tools built to solve real problems.** No Kubernetes, no boilerplate, no grand missions. Just focused code for niche workflows: managing task quotas, simplifying AI integrations, and analyzing market data. Built with modern tools (FastAPI, Python, lightweight JS) but designed to stay simple. Think of these as blueprints, not polished products. Let’s dive in.
 
-\---
+* * *
 
 \### **1\. NanoSaaS: A Microservice Platform for Task Control**
 
@@ -30,7 +30,7 @@ meta: "#programming #weekend #projects"
 
 → \[[https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)\]([https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/))
 
-\---
+* * *
 
 \### **2\. FastAPI AI Assistant: A Chatbot That Streamlines Code**
 
@@ -48,7 +48,7 @@ meta: "#programming #weekend #projects"
 
 → \[[https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)\]([https://github.com/carlosplanchon/fastapi\_ai\_assistant](https://github.com/carlosplanchon/fastapi_ai_assistant))
 
-\---
+* * *
 
 \### **3\. MeasureVolume: Gauging Market Taker Activity**
 
@@ -66,6 +66,6 @@ meta: "#programming #weekend #projects"
 
 → \[[https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)\]([https://github.com/carlosplanchon/measurevolume](https://github.com/carlosplanchon/measurevolume))
 
-\---
+* * *
 
 If you’re stuck on a problem, sometimes a weekend and a focused idea are all you need. Code responsibly! 🛠️
