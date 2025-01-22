@@ -12,7 +12,7 @@ meta: "#programming #weekend #projects"
 
 * * *
 
-\### **1\. NanoSaaS: A Microservice Platform for Task Control**
+### **1\. NanoSaaS: A Microservice Platform for Task Control:**
 
 **What it does**: A lightweight system to manage computational tasks (like batch jobs or data processing) with built-in resource limits.
 
@@ -32,7 +32,7 @@ meta: "#programming #weekend #projects"
 
 * * *
 
-\### **2\. FastAPI AI Assistant: A Chatbot That Streamlines Code**
+### **2\. FastAPI AI Assistant: A Chatbot That Streamlines Code:**
 
 **What it does**: A minimalist FastAPI app that wraps OpenAI’s Code Interpreter into a real-time chatbot.
 
@@ -50,7 +50,7 @@ meta: "#programming #weekend #projects"
 
 * * *
 
-\### **3\. MeasureVolume: Gauging Market Taker Activity**
+### **3\. MeasureVolume: Gauging Market Taker Activity:**
 
 **What it does**: Analyzes order book snapshots (like those from crypto exchanges) to estimate trading volume and liquidity changes.
 
