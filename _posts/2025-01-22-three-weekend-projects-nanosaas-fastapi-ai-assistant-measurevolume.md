@@ -8,7 +8,7 @@ meta: "#programming #weekend #projects"
 ---
 **This post was written using DeepSeek-R1 AI. The tool is seems to be surprisingly precise for writing!**
 
-**This post highlights three weekend projects—small tools built to solve real problems.** No Kubernetes, no boilerplate, no grand missions. Just focused code for niche workflows: managing task quotas, simplifying AI integrations, and analyzing market data. Built with modern tools (FastAPI, Python, lightweight JS) but designed to stay simple. Think of these as blueprints, not polished products. Let’s dive in.
+**This post highlights three weekend projects—small tools built to solve real problems.** No boilerplate, no grand missions. Just focused code for niche workflows: managing tasks, simplifying AI integrations, and analyzing market data. Built with modern tools (FastAPI, Python, lightweight JS) but designed to stay simple. Think of these as blueprints, not polished products. Let’s dive in.
 
 * * *
 
@@ -26,7 +26,7 @@ meta: "#programming #weekend #projects"
 
 \- **Stack**: FastAPI (backend), Celery (task queue), Alpine.js + Tailwind CSS (frontend).
 
-**Why it matters**: Perfect for small teams or solo developers who need to track jobs without overcomplicating things. No Kubernetes, no bloat—just tasks and quotas.
+**Why it matters**: Perfect for small teams or solo developers who need to track jobs without overcomplicating things. No bloat—just tasks and quotas.
 
 → GitHub repository: [https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)
 
@@ -46,7 +46,7 @@ meta: "#programming #weekend #projects"
 
 \- **Stack**: FastAPI (backend), Alpine.js (frontend), Tailwind CSS (styling).
 
-**Why it matters**: Need a no-fuss way to test OpenAI’s Assistants API? This is a template for adding conversational AI to apps without drowning in boilerplate.
+**Why it matters**: This is a small template for adding conversational AI to apps.
 
 → GitHub repository: [https://github.com/carlosplanchon/fastapi\_ai\_assistant](https://github.com/carlosplanchon/fastapi_ai_assistant)
 
@@ -66,10 +66,10 @@ meta: "#programming #weekend #projects"
 
 \- **Scripts**: A script to gauge market takers activity.
 
-**Why it matters**: For traders or researchers, this offers a lightweight way to study market dynamics without proprietary tools.
+**Why it matters**: For traders or researchers, this offers a lightweight way to study market dynamics.
 
 → GitHub repository: [https://github.com/carlosplanchon/measurevolume](https://github.com/carlosplanchon/measurevolume)
 
 ![](/media/measurevolume.png)
 
-If you’re stuck on a problem, sometimes a weekend and a focused idea are all you need. Code responsibly! 🛠️
+Sometimes, all it takes is a weekend and a focused idea to bring something new to life! 🛠️
