@@ -36,3 +36,5 @@ content:
         type: object
         fields:
           - { name: skin, label: Skin, type: select, options: { values: [ "classic", "dark", "auto", "solarized-light", "solarized-dark", "solarized" ] } }
+# Google Analytics
+google_analytics: G-Z6BKP2GW8F
