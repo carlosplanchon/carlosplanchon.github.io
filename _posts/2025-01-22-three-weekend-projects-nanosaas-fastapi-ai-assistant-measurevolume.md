@@ -14,7 +14,7 @@ meta: "#programming #weekend #projects"
 
 ### **1\. NanoSaaS: A Microservice Platform for Task Control:**
 
-**What it does**: A lightweight system to manage computational tasks (like batch jobs or data processing) with built-in resource limits.
+**What it does**: A lightweight system to manage computational tasks with a credits system.
 
 **Key features**:
 
@@ -34,7 +34,7 @@ meta: "#programming #weekend #projects"
 
 * * *
 
-### **2\. FastAPI AI Assistant: A Chatbot That Streamlines Code:**
+### **2\. FastAPI AI Assistant: A Chatbot That Leverage OpenAI Assistants API:**
 
 **What it does**: A minimalist FastAPI app that wraps OpenAI’s Code Interpreter into a real-time chatbot.
 
