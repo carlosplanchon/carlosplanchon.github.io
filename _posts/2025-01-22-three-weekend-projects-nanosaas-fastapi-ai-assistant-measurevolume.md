@@ -6,7 +6,7 @@ author:
   - Carlos A. Planchón
 meta: "#programming #weekend #projects"
 ---
-**This post was written using DeepSeek-R1 AI. The tool is seems to be surprisingly precise for writing!**
+**This post was written using DeepSeek-R1 AI. The tool seems to be surprisingly precise for writing!**
 
 **This post highlights three weekend projects—small tools built to solve real problems.** No boilerplate, no grand missions. Just focused code for niche workflows: managing tasks, simplifying AI integrations, and analyzing market data. Built with modern tools (FastAPI, Python, lightweight JS) but designed to stay simple. Think of these as blueprints, not polished products. Let’s dive in.
 
