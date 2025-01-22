@@ -54,7 +54,7 @@ meta: "#programming #weekend #projects"
 
 \- **Sample datasets**: Includes toy data to experiment with.
 
-\- **Scripts**: Prebuilt tool for gauge market takers activity.
+\- **Scripts**: A script to gauge market takers activity.
 
 **Why it matters**: For traders or researchers, this offers a lightweight way to study market dynamics without proprietary tools.
 
