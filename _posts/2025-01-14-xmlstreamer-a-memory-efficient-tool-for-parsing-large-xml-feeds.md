@@ -127,7 +127,7 @@ Additionally, the `StreamInterpreter` class in XMLStreamer orchestrates the pars
 
 For those interested in building interpreters or working with structured data formats, I highly recommend exploring Ruslan Spivak's tutorial series. His clear explanations and step-by-step approach provide a solid foundation for understanding these concepts.
 
-**Let's Build A Simple Interpreter Series:** [**(**](https://ruslanspivak.com/lsbasi-part1/)[https://ruslanspivak.com/lsbasi-part1/)](https://ruslanspivak.com/lsbasi-part1/)
+**Let's Build A Simple Interpreter Series:** [**(**https://ruslanspivak.com/lsbasi-part1/)](https://ruslanspivak.com/lsbasi-part1/)
 
 * * *
 
@@ -140,4 +140,4 @@ As a developer who appreciates the UNIX philosophy, I believe XMLStreamer can be
 * * *
 
 **Explore XMLStreamer on GitHub:**  
-[GitHub Repository](https://github.com/your-username/xmlstreamer)
+[https://github.com/carlosplanchon/xmlstreamer](https://github.com/carlosplanchon/xmlstreamer)
