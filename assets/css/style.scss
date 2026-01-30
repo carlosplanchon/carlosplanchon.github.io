@@ -5,3 +5,24 @@
 @import
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
+
+// Language selector styles
+.language-selector {
+  display: inline-block;
+  margin-left: 20px;
+
+  .current-lang {
+    font-weight: bold;
+    color: #111;
+  }
+
+  .lang-link {
+    color: #828282;
+    text-decoration: none;
+
+    &:hover {
+      color: #111;
+      text-decoration: underline;
+    }
+  }
+}
