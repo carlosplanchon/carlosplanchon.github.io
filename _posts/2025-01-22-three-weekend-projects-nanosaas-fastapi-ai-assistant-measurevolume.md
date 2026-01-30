@@ -6,70 +6,61 @@ author:
   - Carlos A. Planchón
 meta: "#programming #weekend #projects"
 ---
-**This post was written using DeepSeek-R1 AI. The tool seems to be surprisingly precise for writing!**
+**This post was written using DeepSeek-R1 AI.**
 
-**This post highlights three weekend projects—small tools built to solve real problems.** No boilerplate, no grand missions. Just focused code for niche workflows: managing tasks, simplifying AI integrations, and analyzing market data. Built with modern tools (FastAPI, Python, lightweight JS) but designed to stay simple. Think of these as blueprints, not polished products. Let’s dive in.
+This post covers three weekend projects addressing specific technical problems: task management with resource limits, AI assistant integration, and market microstructure analysis. Each project uses FastAPI and Python, prioritizing straightforward implementations over comprehensive feature sets.
 
 * * *
 
-### **1\. NanoSaaS: A Microservice Platform for Task Control:**
+### 1. NanoSaaS: Task control with resource quotas
 
-**What it does**: A lightweight system to manage computational tasks with a credits system.
+A lightweight system for managing computational tasks with credit-based resource limits.
 
-**Key features**:
+**Features:**
 
-\- **Credits system**: Users get a number of credits to run tasks, preventing resource abuse, and allowing you to sell your software as a service.
+- Credit system for resource allocation and abuse prevention
+- Real-time task monitoring without page refreshes
+- Google SSO authentication
+- Stack: FastAPI, Celery, Alpine.js, Tailwind CSS
 
-\- **Real-time monitoring**: Track task progress live without refreshing the page.
+The design targets small teams or individual developers who need task tracking with quota enforcement.
 
-\- **Google SSO**: Secure login without managing passwords.
-
-\- **Stack**: FastAPI (backend), Celery (task queue), Alpine.js + Tailwind CSS (frontend).
-
-**Why it matters**: Perfect for small teams or solo developers who need to track jobs without overcomplicating things. No bloat—just tasks and quotas.
-
-→ GitHub repository: [https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)
+GitHub: [https://github.com/carlosplanchon/nanosaas/](https://github.com/carlosplanchon/nanosaas/)
 
 ![](/media/nanosaas.png)
 
 * * *
 
-### **2\. FastAPI AI Assistant: A Chatbot That Leverage OpenAI Assistants API:**
+### 2. FastAPI AI Assistant: OpenAI integration template
 
-**What it does**: A minimalist FastAPI app that wraps OpenAI’s Code Interpreter into a real-time chatbot.
+A minimal FastAPI application that wraps OpenAI's Assistant API with streaming responses.
 
-**Key features**:
+**Features:**
 
-\- **Streaming responses**: Answers appear word-by-word via Server-Sent Events (SSE), no waiting for full completion.
+- Streaming responses via Server-Sent Events (SSE)
+- FastAPI middleware layer between OpenAI and frontend
+- Stack: FastAPI, Alpine.js, Tailwind CSS
 
-\- **Simple integration**: FastAPI acts as a clean middleware layer between OpenAI and the frontend.
+The application serves as a template for integrating conversational AI into existing systems.
 
-\- **Stack**: FastAPI (backend), Alpine.js (frontend), Tailwind CSS (styling).
-
-**Why it matters**: This is a small template for adding conversational AI to apps.
-
-→ GitHub repository: [https://github.com/carlosplanchon/fastapi\_ai\_assistant](https://github.com/carlosplanchon/fastapi_ai_assistant)
+GitHub: [https://github.com/carlosplanchon/fastapi_ai_assistant](https://github.com/carlosplanchon/fastapi_ai_assistant)
 
 ![](/media/fastapi_ai_assistant.png)
 
 * * *
 
-### **3\. MeasureVolume: Gauging Market Taker Activity:**
+### 3. MeasureVolume: Order book analysis
 
-**What it does**: Analyzes order book snapshots (like those from crypto exchanges) to estimate trading volume and liquidity changes.
+Analyzes order book snapshots to estimate trading volume and liquidity changes in cryptocurrency markets.
 
-**Key features**:
+**Features:**
 
-\- **Order book diffing**: Compares consecutive snapshots to infer executed trades.
+- Order book diffing to infer executed trades
+- Sample datasets for testing
+- Market taker activity measurement scripts
 
-\- **Sample datasets**: Includes toy data to experiment with.
+The tool provides a lightweight approach to studying market microstructure.
 
-\- **Scripts**: A script to gauge market takers activity.
-
-**Why it matters**: For traders or researchers, this offers a lightweight way to study market dynamics.
-
-→ GitHub repository: [https://github.com/carlosplanchon/measurevolume](https://github.com/carlosplanchon/measurevolume)
+GitHub: [https://github.com/carlosplanchon/measurevolume](https://github.com/carlosplanchon/measurevolume)
 
 ![](/media/measurevolume.png)
-
-Sometimes, all it takes is a weekend and a focused idea to bring something new to life! 🛠️

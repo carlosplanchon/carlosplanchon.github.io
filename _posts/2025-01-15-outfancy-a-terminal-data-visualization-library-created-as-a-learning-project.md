@@ -6,32 +6,15 @@ author:
   - Carlos A. Planchón
 meta: "#programming #visualization #terminal"
 ---
-### Introduction
+In 2014, I developed Outfancy, a terminal-based data visualization library. At 16, I needed a simple way to print tables and charts in the terminal without complex dependencies. Few libraries addressed this specific need at the time.
 
-Back in 2014, when I was 16 years old and eager to explore Python programming, I developed Outfancy, a simple terminal-based data visualization library. It was one of my early projects, built primarily as a learning experience. At the time, I wanted a way to print tables and charts in the terminal without complicated dependencies. In that era, there weren't many libraries addressing that specific need.
-
-* * *
-
-**Why I Built Outfancy**
-
-At the time, I was experimenting with various ways to structure data output for CLI applications and wanted to create a tool that could:
-
-*   **Print Data in Tables:** Display structured data in an easy-to-read format directly in the terminal.
-    
-*   **Update Real-Time Data:** Print one-line updates for monitoring purposes.
-    
-*   **Use Minimal Dependencies:** Keep the library lightweight for simple projects.
-    
-*   **Experiment with Python Concepts:** The project helped me explore object-oriented programming and basic rendering techniques.
-    
-
-Outfancy was born out of curiosity rather than a production need, but it still served as a practical learning tool for working with terminal outputs and formatting data structures.
+The library handles several terminal output tasks: displaying structured data as tables, printing single-line updates for real-time monitoring, and rendering basic charts with minimal dependencies. The implementation served as practice for object-oriented programming and terminal rendering techniques.
 
 * * *
 
-### How Outfancy Works
+### Implementation
 
-Outfancy was designed for simplicity. Here's an example of how it prints tables in the terminal:
+Table rendering in Outfancy:
 
 ```
 import outfancy.table
@@ -58,15 +41,13 @@ print(table.render(dataset))
 
 ![](/media/outfancy_table.png)
 
-Outfancy automatically adapts column widths based on the content, making the tables more readable. I also implemented a heuristic system to guess the data type and use it for naming column labels automatically.
-
-Alternatively, you can manually specify the column headers like this:
+Column widths adapt automatically based on content. A heuristic system infers data types to generate column labels, though manual specification is also supported:
 
 ```
 print(table.render(dataset, label_list=["Id", "Name", "Surname", "City", "Salary"]))
 ```
 
-Outfancy also supports basic real-time data monitoring using the `Oneline` feature:
+Real-time monitoring with `Oneline`:
 
 ```
 # Example 2: Real-time data monitoring with Oneline feature
@@ -81,23 +62,13 @@ for i in range(10):
 
 ![](/media/outfancy_realtime_table.png)
 
-Outfancy includes an experimental feature for creating line charts, enabling numerical data visualization in a terminal-friendly format. This functionality uses ASCII characters to render basic line plots, making it easy to perform simple data analysis directly from the command line.
-
-A better option for this today is: [https://github.com/tammoippen/plotille](https://github.com/tammoippen/plotille)
-
-These features were a great way for me to experiment with different aspects of Python, such as handling loops, string formatting, and modular design.
+The library includes experimental line chart functionality using ASCII characters for terminal-based plotting. For production use, [plotille](https://github.com/tammoippen/plotille) provides a more robust implementation.
 
 * * *
 
-**Alternatives**
+### Current alternatives
 
-Today, more mature options such as `rich` and `tabulate` also offer functionality for terminal data visualization, Outfancy still serves its original purpose well: making terminal data visualization clean and efficient without unnecessary complexity.
-
-* * *
-
-### Conclusion
-
-Outfancy was one of my first steps into Python programming, and while it may not be the best choice for terminal data visualization today, it represents an important part of my growth as a developer. If you're just starting out with Python, don't be afraid to build small tools like this—every experiment teaches you something new.
+Modern libraries like `rich` and `tabulate` offer more mature terminal visualization capabilities. Outfancy remains functional for basic use cases that prioritize simplicity over features.
 
 * * *
 
