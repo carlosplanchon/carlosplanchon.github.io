@@ -6,6 +6,7 @@ categories: programming
 author:
   - Carlos A. Planchón
 meta: "#introduction"
+lang: en
 ---
 My name is Carlos Planchón. I was born in 1997 in Dolores, a small town located in the southwest of Uruguay. My journey into programming began when I was just 10 years old, driven by curiosity. What started as a playful exploration eventually became my vocation and profession.
 

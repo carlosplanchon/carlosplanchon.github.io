@@ -1,0 +1,14 @@
+<div class="language-selector">
+  {%- for lang in site.languages -%}
+    {%- if lang == site.active_lang -%}
+      <span class="current-lang">{{ lang | upcase }}</span>
+    {%- else -%}
+      {%- if page.permalink -%}
+        <a href="{% if lang == site.default_lang %}/{{ page.permalink }}{% else %}/{{ lang }}{{ page.permalink }}{% endif %}" class="lang-link">{{ lang | upcase }}</a>
+      {%- else -%}
+        <a href="{% if lang == site.default_lang %}/{% else %}/{{ lang }}/{% endif %}" class="lang-link">{{ lang | upcase }}</a>
+      {%- endif -%}
+    {%- endif -%}
+    {%- unless forloop.last -%} | {%- endunless -%}
+  {%- endfor -%}
+</div>

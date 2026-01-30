@@ -5,6 +5,7 @@ categories: programming
 author:
   - Carlos A. Planchón
 meta: "#programming #xmlstreamer #xmlfeedspider #scraping #bigdata"
+lang: en
 ---
 Parsing large RSS or Atom feeds often causes memory problems. While working on XML-based projects, I encountered repeated failures with XMLFeedSpider when processing large feeds on ScrapingHub (now Zyte). The OOM killer would terminate spiders that exceeded memory limits.
 

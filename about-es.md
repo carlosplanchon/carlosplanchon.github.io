@@ -1,8 +1,8 @@
 ---
 layout: page
-title: About
+title: Acerca de
 permalink: /about/
-lang: en
+lang: es
 ---
 
 LinkedIn: [https://linkedin.com/in/carlosplanchon](https://linkedin.com/in/carlosplanchon)

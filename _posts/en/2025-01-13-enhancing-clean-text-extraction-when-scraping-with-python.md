@@ -4,6 +4,7 @@ title: Enhancing Clean Text Extraction when Scraping with Python
 categories: programming
 author:
   - Carlos A. Planchón
+lang: en
 ---
 Web scraping projects consistently face similar text extraction problems. Python's `parsel` library handles XPath and CSS selectors effectively, but recurring issues persist: text encoding errors (e.g., `cafÃ©` instead of `café`), excessive whitespace, and malformed HTML structures that require manual cleanup.
 

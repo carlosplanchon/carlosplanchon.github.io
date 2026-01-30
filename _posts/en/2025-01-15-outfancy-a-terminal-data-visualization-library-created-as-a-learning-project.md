@@ -5,6 +5,7 @@ categories: programming
 author:
   - Carlos A. Planchón
 meta: "#programming #visualization #terminal"
+lang: en
 ---
 In 2014, I developed Outfancy, a terminal-based data visualization library. At 16, I needed a simple way to print tables and charts in the terminal without complex dependencies. Few libraries addressed this specific need at the time.
 

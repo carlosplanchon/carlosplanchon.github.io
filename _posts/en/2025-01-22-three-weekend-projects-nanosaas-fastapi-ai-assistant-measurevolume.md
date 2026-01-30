@@ -5,8 +5,8 @@ categories: programming
 author:
   - Carlos A. Planchón
 meta: "#programming #weekend #projects"
+lang: en
 ---
-**This post was written using DeepSeek-R1 AI.**
 
 This post covers three weekend projects addressing specific technical problems: task management with resource limits, AI assistant integration, and market microstructure analysis. Each project uses FastAPI and Python, prioritizing straightforward implementations over comprehensive feature sets.
 
