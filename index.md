@@ -7,7 +7,3 @@
 #
 layout: home
 ---
-
-<div style="text-align: center; margin: 20px 0;">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=carlosplanchon.github.io" alt="Visitor Count"/>
-</div>
