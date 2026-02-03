@@ -24,8 +24,10 @@
   {%- endif -%}
 
   {%- if current_lang == "en" -%}
-    <span class="current-lang">EN</span> | <a href="{{ es_url }}" class="lang-link">ES</a>
+    <span class="current-lang">EN</span> |
+    <a {% static_href %}href="{{ es_url }}"{% endstatic_href %} class="lang-link">ES</a>
   {%- else -%}
-    <a href="{{ en_url }}" class="lang-link">EN</a> | <span class="current-lang">ES</span>
+    <a {% static_href %}href="{{ en_url }}"{% endstatic_href %} class="lang-link">EN</a> |
+    <span class="current-lang">ES</span>
   {%- endif -%}
 </div>
