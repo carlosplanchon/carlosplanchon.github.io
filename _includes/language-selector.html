@@ -4,7 +4,16 @@
       <span class="current-lang">{{ lang | upcase }}</span>
     {%- else -%}
       {%- if page.permalink -%}
-        <a href="{% if lang == site.default_lang %}/{{ page.permalink }}{% else %}/{{ lang }}{{ page.permalink }}{% endif %}" class="lang-link">{{ lang | upcase }}</a>
+        {%- assign clean_permalink = page.permalink | remove_first: "/" -%}
+        {%- if lang == site.default_lang -%}
+          <a href="/{{ clean_permalink }}" class="lang-link">{{ lang | upcase }}</a>
+        {%- else -%}
+          {%- if clean_permalink == "" -%}
+            <a href="/{{ lang }}/" class="lang-link">{{ lang | upcase }}</a>
+          {%- else -%}
+            <a href="/{{ lang }}/{{ clean_permalink }}" class="lang-link">{{ lang | upcase }}</a>
+          {%- endif -%}
+        {%- endif -%}
       {%- else -%}
         <a href="{% if lang == site.default_lang %}/{% else %}/{{ lang }}/{% endif %}" class="lang-link">{{ lang | upcase }}</a>
       {%- endif -%}
