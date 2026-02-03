@@ -1,6 +1,7 @@
 <div class="language-selector">
+  {%- assign current_lang = page.lang | default: site.default_lang -%}
   {%- for lang in site.languages -%}
-    {%- if lang == site.active_lang -%}
+    {%- if lang == current_lang -%}
       <span class="current-lang">{{ lang | upcase }}</span>
     {%- else -%}
       {%- if page.permalink -%}
