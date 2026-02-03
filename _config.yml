@@ -12,7 +12,7 @@ baseurl: ""
 # Theme
 theme: minima
 minima:
-  skin: classic
+  skin: auto
 
 # Analytics
 google_analytics: G-JEL63P0Y9F
