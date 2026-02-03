@@ -6,9 +6,12 @@
   {%- assign current_lang = page.lang | default: site.default_lang | default: "en" -%}
 
   {%- comment -%}
-  Canonical + hreflang (manual, robusto con Polyglot):
-  - page.url en ES puede venir como /es/... -> lo "de-prefijamos" para obtener la ruta base.
-  - x-default siempre apunta al idioma default (EN).
+  1) Normalizamos page.url
+  2) Quitamos prefijo "/<lang>/" si estamos en un idioma no-default
+  3) Construimos:
+     - default_url   => siempre apunta al idioma default (EN)
+     - canonical_url => apunta al idioma actual
+     - hreflang      => alternates correctos
   {%- endcomment -%}
 
   {%- assign p_raw = page.url | default: "/" -%}
@@ -17,18 +20,20 @@
   {%- assign base_path = p_raw -%}
 
   {%- if current_lang != site.default_lang -%}
-    {%- assign lang_prefix = "/" | append: current_lang -%}
-    {%- if base_path == lang_prefix -%}
+    {%- assign prefix = "/" | append: current_lang | append: "/" -%}
+    {%- assign head = p_raw | slice: 0, prefix.size -%}
+
+    {%- if p_raw == "/" | append: current_lang -%}
       {%- assign base_path = "/" -%}
-    {%- elsif base_path == lang_prefix | append: "/" -%}
-      {%- assign base_path = "/" -%}
-    {%- elsif base_path contains lang_prefix | append: "/" -%}
-      {%- assign base_path = base_path | remove_first: lang_prefix -%}
-      {%- if base_path == "" -%}{%- assign base_path = "/" -%}{%- endif -%}
+    {%- elsif head == prefix -%}
+      {%- assign rest = p_raw | remove_first: prefix -%}
+      {%- if rest == "" -%}
+        {%- assign base_path = "/" -%}
+      {%- else -%}
+        {%- assign base_path = "/" | append: rest -%}
+      {%- endif -%}
     {%- endif -%}
   {%- endif -%}
-
-  {%- if base_path == "/index.html" -%}{%- assign base_path = "/" -%}{%- endif -%}
 
   {%- assign default_url = base_path | absolute_url -%}
 
@@ -47,7 +52,7 @@
   {%- if page.title and page.title != "" -%}
     {%- assign seo_title = page.title | append: " | " | append: site.title -%}
   {%- else -%}
-    {%- if page.url == "/" or page.url == "/index.html" -%}
+    {%- if base_path == "/" -%}
       {%- assign seo_title = site.title -%}
       {%- if site.description and site.description != "" -%}
         {%- assign seo_title = seo_title | append: " | " | append: site.description -%}
@@ -73,8 +78,7 @@
   {%- endif -%}
 
   {%- comment -%}
-  Open Graph / Twitter
-  - og:url debe ser canonical_url
+  Open Graph / Twitter: og:url debe ser canonical_url
   {%- endcomment -%}
   {%- assign og_type = "website" -%}
   {%- if page.layout == "post" -%}{%- assign og_type = "article" -%}{%- endif -%}
@@ -90,10 +94,10 @@
   <meta name="twitter:card" content="summary">
 
   {%- comment -%}
-  Canonical + hreflang alternates (correctos)
+  Canonical + hreflang alternates:
+  - x-default siempre apunta al default_url (EN)
   {%- endcomment -%}
   <link rel="canonical" href="{{ canonical_url }}" />
-
   <link rel="alternate" hreflang="{{ site.default_lang }}" href="{{ default_url }}" />
   <link rel="alternate" hreflang="x-default" href="{{ default_url }}" />
 
