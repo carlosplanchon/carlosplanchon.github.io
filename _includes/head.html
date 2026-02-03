@@ -6,21 +6,36 @@
   {%- assign current_lang = page.lang | default: site.default_lang | default: "en" -%}
 
   {%- comment -%}
-  Canonical + hreflang (manual) para evitar:
-  - og:url sin /es/ en páginas ES
-  - hreflang x-default apuntando a /es/
+  Canonical + hreflang (manual, robusto con Polyglot):
+  - page.url en ES puede venir como /es/... -> lo "de-prefijamos" para obtener la ruta base.
+  - x-default siempre apunta al idioma default (EN).
   {%- endcomment -%}
 
-  {%- assign p = page.url | default: "/" -%}
-  {%- if p == "/index.html" -%}{%- assign p = "/" -%}{%- endif -%}
+  {%- assign p_raw = page.url | default: "/" -%}
+  {%- if p_raw == "/index.html" -%}{%- assign p_raw = "/" -%}{%- endif -%}
 
-  {%- assign default_path = p -%}
-  {%- assign default_url  = default_path | absolute_url -%}
+  {%- assign base_path = p_raw -%}
+
+  {%- if current_lang != site.default_lang -%}
+    {%- assign lang_prefix = "/" | append: current_lang -%}
+    {%- if base_path == lang_prefix -%}
+      {%- assign base_path = "/" -%}
+    {%- elsif base_path == lang_prefix | append: "/" -%}
+      {%- assign base_path = "/" -%}
+    {%- elsif base_path contains lang_prefix | append: "/" -%}
+      {%- assign base_path = base_path | remove_first: lang_prefix -%}
+      {%- if base_path == "" -%}{%- assign base_path = "/" -%}{%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if base_path == "/index.html" -%}{%- assign base_path = "/" -%}{%- endif -%}
+
+  {%- assign default_url = base_path | absolute_url -%}
 
   {%- if current_lang == site.default_lang -%}
-    {%- assign canonical_path = default_path -%}
+    {%- assign canonical_path = base_path -%}
   {%- else -%}
-    {%- assign canonical_path = "/" | append: current_lang | append: default_path -%}
+    {%- assign canonical_path = "/" | append: current_lang | append: base_path -%}
     {%- assign canonical_path = canonical_path | replace: "//", "/" -%}
   {%- endif -%}
   {%- assign canonical_url = canonical_path | absolute_url -%}
@@ -59,7 +74,7 @@
 
   {%- comment -%}
   Open Graph / Twitter
-  - og:url debe ser la canonical URL (no page.url | relative_url)
+  - og:url debe ser canonical_url
   {%- endcomment -%}
   {%- assign og_type = "website" -%}
   {%- if page.layout == "post" -%}{%- assign og_type = "article" -%}{%- endif -%}
@@ -76,7 +91,6 @@
 
   {%- comment -%}
   Canonical + hreflang alternates (correctos)
-  - x-default -> default_lang (EN)
   {%- endcomment -%}
   <link rel="canonical" href="{{ canonical_url }}" />
 
@@ -85,7 +99,7 @@
 
   {%- for lang in site.languages -%}
     {%- if lang == site.default_lang -%}{%- continue -%}{%- endif -%}
-    {%- assign lp = "/" | append: lang | append: default_path -%}
+    {%- assign lp = "/" | append: lang | append: base_path -%}
     {%- assign lp = lp | replace: "//", "/" -%}
     <link rel="alternate" hreflang="{{ lang }}" href="{{ lp | absolute_url }}" />
   {%- endfor -%}
