@@ -1,22 +1,43 @@
+# Site identity
 title: Carlos A. Planchón
+description: Any sufficiently advanced technology is indistinguishable from biology.
+
 author:
   name: Carlos A. Planchón
   email: carlosplanchon@cognitialabs.com
-description: Any sufficiently advanced technology is indistinguishable from biology.
+
+url: "https://carlosplanchon.com"
+baseurl: ""
+
+# Theme
 theme: minima
+minima:
+  skin: classic
+
+# Analytics
 google_analytics: G-JEL63P0Y9F
+
+# Permalinks:
+permalink: "/:categories/:year/:month/:day/:title:output_ext"
+
+# Plugins
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
   - jekyll-polyglot
+
+# Header nav (Minima)
 header_pages:
   - about.md
   - about-es.md
-minima:
-  skin: classic
 
 # Polyglot configuration
 languages: ["en", "es"]
 default_lang: "en"
-exclude_from_localization: ["javascript", "images", "css", "media"]
+
+exclude_from_localization:
+  - javascript
+  - images
+  - css
+  - media
+
 parallel_localization: true
