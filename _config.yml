@@ -4,6 +4,7 @@ author:
   email: carlosplanchon@cognitialabs.com
 description: Any sufficiently advanced technology is indistinguishable from biology.
 theme: minima
+google_analytics: G-JEL63P0Y9F
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
