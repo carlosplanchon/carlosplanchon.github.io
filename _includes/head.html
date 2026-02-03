@@ -6,8 +6,27 @@
   {%- assign current_lang = page.lang | default: site.default_lang | default: "en" -%}
 
   {%- comment -%}
-  SEO básico (sin jekyll-seo-tag) + headers i18n de Polyglot.
-  IMPORTANTE: I18n_Headers genera canonical + hreflang correctos por idioma.
+  Canonical + hreflang (manual) para evitar:
+  - og:url sin /es/ en páginas ES
+  - hreflang x-default apuntando a /es/
+  {%- endcomment -%}
+
+  {%- assign p = page.url | default: "/" -%}
+  {%- if p == "/index.html" -%}{%- assign p = "/" -%}{%- endif -%}
+
+  {%- assign default_path = p -%}
+  {%- assign default_url  = default_path | absolute_url -%}
+
+  {%- if current_lang == site.default_lang -%}
+    {%- assign canonical_path = default_path -%}
+  {%- else -%}
+    {%- assign canonical_path = "/" | append: current_lang | append: default_path -%}
+    {%- assign canonical_path = canonical_path | replace: "//", "/" -%}
+  {%- endif -%}
+  {%- assign canonical_url = canonical_path | absolute_url -%}
+
+  {%- comment -%}
+  SEO básico (sin jekyll-seo-tag)
   {%- endcomment -%}
 
   {%- if page.title and page.title != "" -%}
@@ -39,7 +58,8 @@
   {%- endif -%}
 
   {%- comment -%}
-  Open Graph / Twitter (og:url usa relative_url para que Polyglot prefije /es/ cuando corresponda)
+  Open Graph / Twitter
+  - og:url debe ser la canonical URL (no page.url | relative_url)
   {%- endcomment -%}
   {%- assign og_type = "website" -%}
   {%- if page.layout == "post" -%}{%- assign og_type = "article" -%}{%- endif -%}
@@ -50,14 +70,25 @@
   {%- endif -%}
   <meta property="og:locale" content="{{ current_lang | escape }}">
   <meta property="og:type" content="{{ og_type }}">
-  <meta property="og:url" content="{{ page.url | relative_url | absolute_url }}">
+  <meta property="og:url" content="{{ canonical_url }}">
 
   <meta name="twitter:card" content="summary">
 
   {%- comment -%}
-  Canonical + hreflang alternates correctos por idioma (Polyglot)
+  Canonical + hreflang alternates (correctos)
+  - x-default -> default_lang (EN)
   {%- endcomment -%}
-  {% I18n_Headers %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  <link rel="alternate" hreflang="{{ site.default_lang }}" href="{{ default_url }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ default_url }}" />
+
+  {%- for lang in site.languages -%}
+    {%- if lang == site.default_lang -%}{%- continue -%}{%- endif -%}
+    {%- assign lp = "/" | append: lang | append: default_path -%}
+    {%- assign lp = lp | replace: "//", "/" -%}
+    <link rel="alternate" hreflang="{{ lang }}" href="{{ lp | absolute_url }}" />
+  {%- endfor -%}
 
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
   {%- feed_meta -%}
