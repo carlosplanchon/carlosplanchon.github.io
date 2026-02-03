@@ -13,10 +13,10 @@
     {%- assign es_url = "/es/" -%}
   {%- elsif page.url == "/about/" or page.url contains "/about" -%}
     {%- assign en_url = "/about/" -%}
-    {%- assign es_url = "/es/acerca-de/" -%}
-  {%- elsif page.url == "/es/acerca-de/" or page.url contains "/acerca-de" -%}
+    {%- assign es_url = "/es/about/" -%}
+  {%- elsif page.url == "/es/about/" or page.url contains "/es/about" -%}
     {%- assign en_url = "/about/" -%}
-    {%- assign es_url = "/es/acerca-de/" -%}
+    {%- assign es_url = "/es/about/" -%}
   {%- else -%}
     {%- comment -%}Default fallback to homepages{%- endcomment -%}
     {%- assign en_url = "/" -%}
