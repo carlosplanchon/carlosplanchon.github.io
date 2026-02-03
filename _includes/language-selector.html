@@ -1,24 +1,31 @@
 <div class="language-selector">
   {%- assign current_lang = page.lang | default: site.default_lang -%}
-  {%- for lang in site.languages -%}
-    {%- if lang == current_lang -%}
-      <span class="current-lang">{{ lang | upcase }}</span>
-    {%- else -%}
-      {%- if page.permalink -%}
-        {%- assign clean_permalink = page.permalink | remove_first: "/" -%}
-        {%- if lang == site.default_lang -%}
-          <a href="/{{ clean_permalink }}" class="lang-link">{{ lang | upcase }}</a>
-        {%- else -%}
-          {%- if clean_permalink == "" -%}
-            <a href="/{{ lang }}/" class="lang-link">{{ lang | upcase }}</a>
-          {%- else -%}
-            <a href="/{{ lang }}/{{ clean_permalink }}" class="lang-link">{{ lang | upcase }}</a>
-          {%- endif -%}
-        {%- endif -%}
-      {%- else -%}
-        <a href="{% if lang == site.default_lang %}/{% else %}/{{ lang }}/{% endif %}" class="lang-link">{{ lang | upcase }}</a>
-      {%- endif -%}
-    {%- endif -%}
-    {%- unless forloop.last -%} | {%- endunless -%}
-  {%- endfor -%}
+
+  {%- comment -%}
+  Hardcoded language mapping based on page URLs
+  {%- endcomment -%}
+
+  {%- if page.url == "/" or page.url == "/index.html" -%}
+    {%- assign en_url = "/" -%}
+    {%- assign es_url = "/es/" -%}
+  {%- elsif page.url == "/es/" or page.url == "/es/index.html" -%}
+    {%- assign en_url = "/" -%}
+    {%- assign es_url = "/es/" -%}
+  {%- elsif page.url == "/about/" or page.url contains "/about" -%}
+    {%- assign en_url = "/about/" -%}
+    {%- assign es_url = "/es/acerca-de/" -%}
+  {%- elsif page.url == "/es/acerca-de/" or page.url contains "/acerca-de" -%}
+    {%- assign en_url = "/about/" -%}
+    {%- assign es_url = "/es/acerca-de/" -%}
+  {%- else -%}
+    {%- comment -%}Default fallback to homepages{%- endcomment -%}
+    {%- assign en_url = "/" -%}
+    {%- assign es_url = "/es/" -%}
+  {%- endif -%}
+
+  {%- if current_lang == "en" -%}
+    <span class="current-lang">EN</span> | <a href="{{ es_url }}" class="lang-link">ES</a>
+  {%- else -%}
+    <a href="{{ en_url }}" class="lang-link">EN</a> | <span class="current-lang">ES</span>
+  {%- endif -%}
 </div>
