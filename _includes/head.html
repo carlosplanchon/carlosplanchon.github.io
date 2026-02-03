@@ -97,15 +97,17 @@
   Canonical + hreflang alternates:
   - x-default siempre apunta al default_url (EN)
   {%- endcomment -%}
-  <link rel="canonical" href="{{ canonical_url }}" />
-  <link rel="alternate" hreflang="{{ site.default_lang }}" href="{{ default_url }}" />
-  <link rel="alternate" hreflang="x-default" href="{{ default_url }}" />
+
+  <link rel="canonical" {% static_href %}href="{{ canonical_url }}"{% endstatic_href %} />
+
+  <link rel="alternate" hreflang="{{ site.default_lang }}" {% static_href %}href="{{ default_url }}"{% endstatic_href %} />
+  <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ default_url }}"{% endstatic_href %} />
 
   {%- for lang in site.languages -%}
     {%- if lang == site.default_lang -%}{%- continue -%}{%- endif -%}
     {%- assign lp = "/" | append: lang | append: base_path -%}
     {%- assign lp = lp | replace: "//", "/" -%}
-    <link rel="alternate" hreflang="{{ lang }}" href="{{ lp | absolute_url }}" />
+    <link rel="alternate" hreflang="{{ lang }}" {% static_href %}href="{{ lp | absolute_url }}"{% endstatic_href %} />
   {%- endfor -%}
 
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
