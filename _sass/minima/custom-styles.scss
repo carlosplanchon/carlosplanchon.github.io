@@ -1,23 +1,2 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
-
-// Language selector styles
-.language-selector {
-  display: inline-block;
-  margin-left: 20px;
-  font-size: 14px;
-
-  .current-lang {
-    font-weight: bold;
-    color: $text-color;
-  }
-
-  .lang-link {
-    color: $brand-color;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}

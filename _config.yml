@@ -23,21 +23,7 @@ permalink: "/:categories/:year/:month/:day/:title:output_ext"
 # Plugins
 plugins:
   - jekyll-feed
-  - jekyll-polyglot
 
 # Header nav (Minima)
 header_pages:
   - about.md
-  - about-es.md
-
-# Polyglot configuration
-languages: ["en", "es"]
-default_lang: "en"
-
-exclude_from_localization:
-  - javascript
-  - images
-  - css
-  - media
-
-parallel_localization: true
