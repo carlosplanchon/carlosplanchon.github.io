@@ -15,7 +15,7 @@ I developed **XMLStreamer** to address this problem. The library handles XML fee
 
 ### Design approach
 
-Most XML parsing mechanisms load large chunks—or the entire file—into memory before processing. This creates problems with multi-gigabyte files or continuous streams, resulting in high memory footprint and frequent crashes in resource-constrained environments.
+Most XML parsing mechanisms load large chunks—or the entire file—into memory before processing. Loading entire files into memory creates problems with multi-gigabyte files or continuous streams, resulting in high memory footprint and frequent crashes in resource-constrained environments.
 
 Scrapy's `XMLFeedSpider` works for moderate use cases but struggles with large or compressed feeds. XMLStreamer addresses these limitations through:
 
@@ -85,7 +85,7 @@ XMLFeedSpider works well for typical XML feeds but has limitations with large or
 | **Memory Efficiency** | Parses bigger chunks (risk of OOM) | Streams data in chunks, minimizing memory usage |
 | **Compression Handling** | May require manual decompression | Built-in GZIP support |
 | **Tokenization** | Basic item extraction | SAX-based approach, custom filters & attributes |
-| **Flexible Buffer/Runtime** | It doesn't have a buffer | User-defined buffer size & max running time |
+| **Flexible Buffer/Runtime** | It does not have a buffer | User-defined buffer size & max running time |
 | **Ease of Integration** | Native to Scrapy | Standalone library (easily used with Scrapy too) |
 
 XMLStreamer prioritizes memory efficiency over simplicity. For large data sources or compressed streams in resource-constrained environments, the streaming approach prevents OOM errors that would terminate XMLFeedSpider-based spiders.

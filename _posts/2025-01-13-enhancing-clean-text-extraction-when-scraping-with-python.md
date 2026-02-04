@@ -52,7 +52,7 @@ The library handles text extraction and normalization in a single operation.
 
 ### When to use `parsel_text`
 
-Use `parsel_text` when working with sites that have inconsistent HTML or encoding problems. It's particularly useful for projects that require automated text cleanup across multiple sources.
+Use `parsel_text` when working with sites that have inconsistent HTML or encoding problems. It is particularly useful for projects that require automated text cleanup across multiple sources.
 
 For well-structured pages with consistent formatting, standard `parsel` remains sufficient. `parsel_text` addresses cases where HTML quality is poor or encoding is unreliable.
 
