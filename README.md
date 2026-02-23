@@ -46,7 +46,7 @@ If you’d like to contribute (e.g., spot a typo or have a suggestion), feel fre
 I’m active on GitHub and generally interested in software, aviation, and building things that matter.
 
 * GitHub: [https://github.com/carlosplanchon](https://github.com/carlosplanchon)
-* Blog: [https://carlosplanchon.github.io](https://carlosplanchon.com/)
+* Blog: [https://carlosplanchon.com](https://carlosplanchon.com/)
 
 
 Thanks for stopping by, enjoy your reading!
