@@ -1,4 +1,4 @@
-# Carlos Planchón – Personal Blog
+# Carlos Planchón - Personal Blog
 
 Welcome to the **source repository** for my personal blog, hosted at [carlosplanchon.com](https://carlosplanchon.com). This is where I publish posts on a variety of topics, from **engineering insights and technical writing** to **aviation notes, software development, and personal projects**.
 
