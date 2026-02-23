@@ -2,30 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://carlosplanchon.com/</loc>
     <lastmod>2025-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://carlosplanchon.com/categories/</loc>
     <lastmod>2025-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://carlosplanchon.com/posts/</loc>
     <lastmod>2025-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/programming/</loc>
+    <loc>https://carlosplanchon.com/categories/programming/</loc>
     <lastmod>2025-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/three-weekend-projects-nanosaas-fastapi-ai-assistant-measurevolume/</loc>
+    <loc>https://carlosplanchon.com/posts/three-weekend-projects-nanosaas-fastapi-ai-assistant-measurevolume/</loc>
     <lastmod>2025-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/outfancy-a-terminal-data-visualization-library-created-as-a-learning-project/</loc>
+    <loc>https://carlosplanchon.com/posts/outfancy-a-terminal-data-visualization-library-created-as-a-learning-project/</loc>
     <lastmod>2025-01-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/hello-world/</loc>
+    <loc>https://carlosplanchon.com/posts/hello-world/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/me/</loc>
+    <loc>https://carlosplanchon.com/categories/me/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://carlosplanchon.com/tags/</loc>
   </url>
 </urlset>
