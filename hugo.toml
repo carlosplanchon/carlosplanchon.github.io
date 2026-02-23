@@ -1,0 +1,40 @@
+baseURL = 'https://carlosplanchon.com/'
+languageCode = 'en-us'
+title = 'Carlos A. Planchón'
+theme = 'swiss-operator'
+
+[outputs]
+home = ['html', 'rss']
+section = ['html', 'rss']
+
+[params]
+description = "A personal blog about engineering and aviation"
+postsPerPage = 10
+favicon = "/favicon.svg"
+
+[params.social]
+github = "https://github.com/carlosplanchon"
+linkedin = "https://linkedin.com/in/carlosplanchon"
+twitter = "https://x.com/carlosplanchon"
+instagram = "https://instagram.com/carlos_planchon"
+facebook = "https://facebook.com/carlosplanchon"
+
+[params.theme]
+accentBlue = "#0055FF"
+accentRed = "#E62B1E"
+showRss = true
+localFonts = false  # Set to true to use locally hosted fonts instead of Google Fonts
+
+[params.categories]
+colors = { Engineering = "#0055FF", Aviation = "#E62B1E", programming = "#0055FF", me = "#E62B1E" }
+
+[params.remark42]
+url = "https://remark42.carlosplanchon.com"
+site = "blog"
+
+# Main navigation menu
+[[menu.main]]
+  name   = "About me"
+  url    = "/about/"
+  weight = 1
+

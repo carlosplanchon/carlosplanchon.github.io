@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Memory Management in Rust: Ownership and Borrowing Explained | Carlos A. Planchón</title>
+
+<meta name="description" content="Understanding Rust&#39;s unique approach to memory safety through ownership, borrowing, and lifetimes.">
+
+<script>
+  (function() {
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = stored || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+</head>
+<body>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('.theme-toggle').addEventListener('click', function() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme') || 
+      (localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    if (window.REMARK42) {
+      window.REMARK42.changeTheme(next);
+    }
+  });
+});
+</script>
+
+<header class="site-header">
+  <div class="brand">
+    <a href="/"><strong>Carlos A. Planchón</strong></a>
+  </div>
+
+  <nav class="main-nav">
+    
+      <a href="/about/">About me</a>
+    
+    <a href="/index.xml" class="rss-link" title="RSS Feed">RSS</a>
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+      <svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="theme-icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+
+  <main class="layout-wrapper">
+    <section class="content-primary">
+      
+<article class="post-single">
+    
+    <header class="post-header">
+        <div class="post-meta">
+            <span class="mono-date">2026.02.20</span>
+            
+              
+              <span class="category-tag"> // <a href="/categories/engineering/" style="color:inherit;text-decoration:none;">Engineering</a></span>
+            
+            <span class="reading-time"> // 2 min read</span>
+        </div>
+
+        <h1 class="post-title">Memory Management in Rust: Ownership and Borrowing Explained</h1>
+        
+        
+            <p class="post-subtitle">Understanding Rust&#39;s unique approach to memory safety through ownership, borrowing, and lifetimes.</p>
+        
+    </header>
+    
+    
+    <figure class="post-hero">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Image for Memory Management in Rust: Ownership and Borrowing Explained">
+    </figure>
+    
+
+    <div class="post-content">
+        <p>Rust achieves memory safety without a garbage collector through its ownership system. This article explores the core concepts that make this possible.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Traditional memory management approaches have trade-offs:</p>
+<ul>
+<li><strong>Garbage collectors</strong> add runtime overhead</li>
+<li><strong>Manual memory management</strong> is error-prone (buffer overflows, use-after-free, double-free)</li>
+</ul>
+<p>Rust solves this at compile time through its ownership system.</p>
+<h2 id="ownership-rules">Ownership Rules</h2>
+<p>Rust has three fundamental ownership rules:</p>
+<ol>
+<li>Each value has a single <em>owner</em></li>
+<li>When the owner goes out of scope, the value is dropped</li>
+<li>There can only be one mutable reference OR multiple immutable references</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);  <span style="color:#75715e">// s1 owns the String
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> s1;                      <span style="color:#75715e">// ownership moves to s2
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// println!(&#34;{}&#34;, s1);            // ERROR: s1 no longer valid
+</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, s2);               <span style="color:#75715e">// Works fine
+</span></span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="borrowing">Borrowing</h2>
+<p>Borrowing allows references to data without taking ownership:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">calculate_length</span>(s: <span style="color:#66d9ef">&amp;</span>String) -&gt; <span style="color:#66d9ef">usize</span> {
+</span></span><span style="display:flex;"><span>    s.len()
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// s goes out of scope, but doesn&#39;t drop the String
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> len <span style="color:#f92672">=</span> calculate_length(<span style="color:#f92672">&amp;</span>s1);  <span style="color:#75715e">// borrow s1
+</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;Length of &#39;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39; is </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, s1, len);  <span style="color:#75715e">// s1 still valid
+</span></span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="mutable-references">Mutable References</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>    change(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> s);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, s);  <span style="color:#75715e">// prints &#34;hello, world&#34;
+</span></span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">change</span>(s: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> String) {
+</span></span><span style="display:flex;"><span>    s.push_str(<span style="color:#e6db74">&#34;, world&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Rule: You cannot have a mutable reference while immutable references exist.</p>
+<h2 id="the-borrow-checker">The Borrow Checker</h2>
+<p>The borrow checker enforces these rules at compile time:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> s <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> r1 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>s;     <span style="color:#75715e">// immutable borrow
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> r2 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>s;     <span style="color:#75715e">// another immutable borrow - OK
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// let r3 = &amp;mut s;  // ERROR: can&#39;t borrow mutably while immutable borrows exist
+</span></span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> and </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, r1, r2);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> r3 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> s;  <span style="color:#75715e">// OK - previous immutable borrows are done
+</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, r3);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="lifetimes">Lifetimes</h2>
+<p>Lifetimes ensure references are valid for as long as they&rsquo;re used:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">longest</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">&#39;a</span><span style="color:#f92672">&gt;</span>(x: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">&#39;a</span> <span style="color:#66d9ef">str</span>, y: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">&#39;a</span> <span style="color:#66d9ef">str</span>) -&gt; <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">&#39;a</span> <span style="color:#66d9ef">str</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> x.len() <span style="color:#f92672">&gt;</span> y.len() { x } <span style="color:#66d9ef">else</span> { y }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>'a</code> lifetime annotation specifies that the returned reference will be valid for as long as both input references.</p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<ul>
+<li><strong>Zero-cost abstractions</strong>: Most checks happen at compile time</li>
+<li><strong>No runtime overhead</strong>: No garbage collector</li>
+<li><strong>Memory safety guaranteed</strong>: Impossible to have dangling references</li>
+<li><strong>Thread safety</strong>: The ownership model prevents data races at compile time</li>
+</ul>
+<p>Understanding ownership and borrowing is fundamental to writing idiomatic Rust and leveraging its unique safety guarantees.</p>
+
+    </div>
+
+    
+<section class="comments-section">
+  <div class="comments-header">
+    <h2 class="comments-title">Discussion</h2>
+  </div>
+
+  <div class="comments-shell">
+    <div id="remark42"></div>
+  </div>
+</section>
+
+<script>
+  var remark_config = {
+    host: "http:\/\/localhost:60080",
+    site_id: "blog",
+    theme: (function() {
+      var t = document.documentElement.getAttribute('data-theme');
+      if (!t) t = localStorage.getItem('theme');
+      if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+      return t || 'light';
+    })()
+  };
+</script>
+<script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+
+
+
+</article>
+
+    </section>
+
+    <aside class="sidebar content-secondary">
+      <div class="sidebar-section">
+  <h3>Categories</h3>
+  <ul>
+    
+      <li>
+        <a href="/categories/aviation/" style="color:inherit;text-decoration:none;">
+          Aviation
+        </a>
+      </li>
+    
+      <li>
+        <a href="/categories/engineering/" style="color:inherit;text-decoration:none;">
+          Engineering
+        </a>
+      </li>
+    
+      <li>
+        <a href="/categories/programming/" style="color:inherit;text-decoration:none;">
+          Programming
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section" style="margin-top: 60px;">
+  <h3>Posts List</h3>
+  <ul>
+    
+    
+      <li style="margin-bottom: 20px;">
+        <span class="log-list-date"><code>2026.02.20</code></span>
+        <span class="log-list-action"><a href="/posts/industrial-sensors-principles/" style="color:inherit;text-decoration:none;">Principles of Operation of Industrial Sensors</a></span>
+      </li>
+    
+      <li style="margin-bottom: 20px;">
+        <span class="log-list-date"><code>2026.02.20</code></span>
+        <span class="log-list-action"><a href="/posts/rust-ownership-borrowing/" style="color:inherit;text-decoration:none;">Memory Management in Rust: Ownership and Borrowing Explained</a></span>
+      </li>
+    
+      <li style="margin-bottom: 20px;">
+        <span class="log-list-date"><code>2026.02.20</code></span>
+        <span class="log-list-action"><a href="/posts/aerodynamics-lift-drag/" style="color:inherit;text-decoration:none;">Aerodynamics: Lift and Drag</a></span>
+      </li>
+    
+      <li style="margin-bottom: 20px;">
+        <span class="log-list-date"><code>2026.02.18</code></span>
+        <span class="log-list-action"><a href="/posts/hugo-blog-guide/" style="color:inherit;text-decoration:none;">Building a Personal Blog with Hugo</a></span>
+      </li>
+    
+      <li style="margin-bottom: 20px;">
+        <span class="log-list-date"><code>2026.02.15</code></span>
+        <span class="log-list-action"><a href="/posts/vfr-cloud-cover/" style="color:inherit;text-decoration:none;">VFR Decision-Making with Scattered Cloud Cover</a></span>
+      </li>
+    
+  </ul>
+</div>
+
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-content">
+
+    <div class="social-links">
+<a href="https://github.com/carlosplanchon" target="_blank" rel="noopener">GitHub</a>
+<a href="https://linkedin.com/in/carlosplanchon" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://x.com/carlosplanchon" target="_blank" rel="noopener">X</a>
+<a href="https://instagram.com/carlos_planchon" target="_blank" rel="noopener">Instagram</a>
+<a href="https://facebook.com/carlosplanchon" target="_blank" rel="noopener">Facebook</a>
+    </div>
+
+    <p>&copy; 2026 Carlos A. Planchón. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

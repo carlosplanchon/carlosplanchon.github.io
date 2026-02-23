@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Outfancy: A Terminal Data Visualization Library Created as a Learning Project | Carlos A. Planchón</title>
+
+<meta name="description" content="A terminal-based data visualization library created as a learning project">
+
+<script>
+  (function() {
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = stored || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+</head>
+<body>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('.theme-toggle').addEventListener('click', function() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme') || 
+      (localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    if (window.REMARK42) {
+      window.REMARK42.changeTheme(next);
+    }
+  });
+});
+</script>
+
+<header class="site-header">
+  <div class="brand">
+    <a href="/"><strong>Carlos A. Planchón</strong></a>
+  </div>
+
+  <nav class="main-nav">
+    
+      <a href="/about/">About me</a>
+    
+    <a href="/index.xml" class="rss-link" title="RSS Feed">RSS</a>
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+      <svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="theme-icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+
+  <main class="layout-wrapper">
+    <section class="content-primary">
+      
+<article class="post-single">
+    
+    <header class="post-header">
+        <div class="post-meta">
+            <span class="mono-date">2025.01.15</span>
+            
+              
+              <span class="category-tag"> // <a href="/categories/programming/" style="color:inherit;text-decoration:none;">programming</a></span>
+            
+            <span class="reading-time"> // 2 min read</span>
+        </div>
+
+        <h1 class="post-title">Outfancy: A Terminal Data Visualization Library Created as a Learning Project</h1>
+        
+        
+            <p class="post-subtitle">A terminal-based data visualization library created as a learning project</p>
+        
+    </header>
+    
+    
+    <figure class="post-hero">
+        <img src="/outfancy_table.png" alt="Image for Outfancy: A Terminal Data Visualization Library Created as a Learning Project">
+    </figure>
+    
+
+    <div class="post-content">
+        <p>In 2014, I developed Outfancy, a terminal-based data visualization library. At 16, I needed a simple way to print tables and charts in the terminal without complex dependencies. Few libraries addressed this specific need at the time.</p>
+<p>The library handles several terminal output tasks: displaying structured data as tables, printing single-line updates for real-time monitoring, and rendering basic charts with minimal dependencies. The implementation served as practice for object-oriented programming and terminal rendering techniques.</p>
+<hr>
+<h3 id="implementation">Implementation</h3>
+<p>Table rendering in Outfancy:</p>
+<pre tabindex="0"><code>import outfancy.table
+import time
+
+# Example 1: Printing a larger table with more columns and data
+dataset = [
+    (1, &#39;Alice&#39;, &#39;Engineer&#39;, &#39;New York&#39;, 50000),
+    (2, &#39;Bob&#39;, &#39;Designer&#39;, &#39;Los Angeles&#39;, 55000),
+    (3, &#39;Charlie&#39;, &#39;Manager&#39;, &#39;Chicago&#39;, 70000),
+    (4, &#39;Diana&#39;, &#39;Analyst&#39;, &#39;San Francisco&#39;, 60000),
+    (5, &#39;Eve&#39;, &#39;Developer&#39;, &#39;Austin&#39;, 65000),
+    (6, &#39;Frank&#39;, &#39;Data Scientist&#39;, &#39;Seattle&#39;, 80000),
+    (7, &#39;Grace&#39;, &#39;Product Manager&#39;, &#39;Miami&#39;, 75000),
+    (8, &#39;Hank&#39;, &#39;DevOps Engineer&#39;, &#39;Boston&#39;, 72000),
+    (9, &#39;Ivy&#39;, &#39;HR Specialist&#39;, &#39;Denver&#39;, 48000),
+    (10, &#39;Jack&#39;, &#39;Software Architect&#39;, &#39;Houston&#39;, 90000)
+]
+
+table = outfancy.table.Table()
+print(&#34;Table Example:&#34;)
+print(table.render(dataset))
+</code></pre><p><img src="/outfancy_table.png" alt=""></p>
+<p>Column widths adapt automatically based on content. A heuristic system infers data types to generate column labels, though manual specification is also supported:</p>
+<pre tabindex="0"><code>print(table.render(dataset, label_list=[&#34;Id&#34;, &#34;Name&#34;, &#34;Surname&#34;, &#34;City&#34;, &#34;Salary&#34;]))
+</code></pre><p>Real-time monitoring with <code>Oneline</code>:</p>
+<pre tabindex="0"><code># Example 2: Real-time data monitoring with Oneline feature
+oneline_table = outfancy.table.Oneline()
+
+print(&#34;\nReal-Time Data Monitoring Example:&#34;)
+for i in range(10):
+    data = [dataset[i][0], dataset[i][1].ljust(10), f&#34;Processing {i*10}%&#34;]
+    print(oneline_table.render(data))
+    time.sleep(1)
+</code></pre><p><img src="/outfancy_realtime_table.png" alt=""></p>
+<p>The library includes experimental line chart functionality using ASCII characters for terminal-based plotting. For production use, <a href="https://github.com/tammoippen/plotille">plotille</a> provides a more robust implementation.</p>
+<hr>
+<h3 id="current-alternatives">Current alternatives</h3>
+<p>Modern libraries like <code>rich</code> and <code>tabulate</code> offer more mature terminal visualization capabilities. Outfancy remains functional for basic use cases that prioritize simplicity over features.</p>
+<hr>
+<p><strong>Explore Outfancy on GitHub:</strong></p>
+<p><a href="https://github.com/carlosplanchon/outfancy">https://github.com/carlosplanchon/outfancy</a></p>
+
+    </div>
+
+    
+<section class="comments-section">
+  <div class="comments-header">
+    <h2 class="comments-title">Discussion</h2>
+  </div>
+
+  <div class="comments-shell">
+    <div id="remark42"></div>
+  </div>
+</section>
+
+<script>
+  var remark_config = {
+    host: "https:\/\/remark42.carlosplanchon.com",
+    site_id: "blog",
+    theme: (function() {
+      var t = document.documentElement.getAttribute('data-theme');
+      if (!t) t = localStorage.getItem('theme');
+      if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+      return t || 'light';
+    })()
+  };
+</script>
+<script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+
+
+
+</article>
+
+    </section>
+
+    <aside class="sidebar content-secondary">
+      <div class="sidebar-section">
+  <h3>Categories</h3>
+  <ul>
+    
+      <li>
+        <a href="/categories/me/" style="color:inherit;text-decoration:none;">
+          Me
+        </a>
+      </li>
+    
+      <li>
+        <a href="/categories/programming/" style="color:inherit;text-decoration:none;">
+          Programming
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section" style="margin-top: 60px;">
+  <h3>Posts List</h3>
+  <ul>
+    
+    
+      <li style="margin-bottom: 20px;">
+        <span class="log-list-date"><code>2025.01.22</code></span>
+        <span class="log-list-action"><a href="/posts/three-weekend-projects-nanosaas-fastapi-ai-assistant-measurevolume/" style="color:inherit;text-decoration:none;">Three Weekend Projects - NanoSaaS, FastAPI AI Assistant, MeasureVolume</a></span>
+      </li>
+    
+      <li style="margin-bottom: 20px;">
+        <span class="log-list-date"><code>2025.01.15</code></span>
+        <span class="log-list-action"><a href="/posts/outfancy-a-terminal-data-visualization-library-created-as-a-learning-project/" style="color:inherit;text-decoration:none;">Outfancy: A Terminal Data Visualization Library Created as a Learning Project</a></span>
+      </li>
+    
+      <li style="margin-bottom: 20px;">
+        <span class="log-list-date"><code>2025.01.12</code></span>
+        <span class="log-list-action"><a href="/posts/hello-world/" style="color:inherit;text-decoration:none;">Hello World!</a></span>
+      </li>
+    
+  </ul>
+</div>
+
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-content">
+
+    <div class="social-links">
+<a href="https://github.com/carlosplanchon" target="_blank" rel="noopener">GitHub</a>
+<a href="https://linkedin.com/in/carlosplanchon" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://x.com/carlosplanchon" target="_blank" rel="noopener">X</a>
+<a href="https://instagram.com/carlos_planchon" target="_blank" rel="noopener">Instagram</a>
+<a href="https://facebook.com/carlosplanchon" target="_blank" rel="noopener">Facebook</a>
+    </div>
+
+    <p>&copy; 2026 Carlos A. Planchón. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
