@@ -2,7 +2,9 @@ baseURL = 'https://carlosplanchon.com/'
 languageCode = 'en-us'
 title = 'Carlos A. Planchón'
 theme = 'swiss-operator'
-googleAnalytics = "G-JEL63P0Y9F"
+
+[services.googleAnalytics]
+id = "G-JEL63P0Y9F"
 
 [outputs]
 home = ['html', 'rss']
