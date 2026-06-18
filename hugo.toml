@@ -1,5 +1,5 @@
 baseURL = 'https://carlosplanchon.com/'
-locale = 'en-US'
+languageCode = 'en-us'
 title = 'Carlos A. Planchón'
 theme = 'swiss-operator'
 
